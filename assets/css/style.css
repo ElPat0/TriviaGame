@@ -2,8 +2,18 @@ body {
     font-family: 'Oswald', sans-serif;
     background: url('../images/oriental.png');
   }
-.jumbotron{
+.jumbotron, .card{
     font-family: 'Oswald', sans-serif;
     color: black;
     background-color: lightseagreen;
+    border-width: 5px;
+    border-color: black;
+}
+.jumbotron-fluid{
+  text-align: center;
+  border-width: 5px;
+    border-color: black;
+}
+.card{
+  float: right;
 }
