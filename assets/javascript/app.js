@@ -1,7 +1,9 @@
 
 var userChoice;
 var questionsAnswered = 0;
+$("#q-answered").html("Questions Answered: " + questionsAnswered);
 var correctChoice = 0;
+$("#q-correct").html("Total Correct: " + correctChoice);
 var question = [
     {text: "The trunk of an elephant is prehensile.",
     value: "True",
@@ -76,8 +78,8 @@ $(".userbtn").on("click", clickHandler);
 $("#True").on("click", function(){
 userChoice = $("#True").val().trim();
 if(userChoice == question[i].value){
-    correctChoice = (correctChoice++);
-    questionsAnswered = (questionsAnswered++);
+    correctChoice = (correctChoice + 1);
+    questionsAnswered = (questionsAnswered + 1);
     $("#q-answered").html("Questions Answered: " + questionsAnswered);
     $("#q-correct").html("Total Correct: " + correctChoice);
     }
@@ -85,7 +87,7 @@ if(userChoice == question[i].value){
 $("#False").on("click", function(){
     userChoice = $("#False").val().trim();
     if(userChoice == question[i].value){
-        questionsAnswered = (questionsAnswered++);
+        questionsAnswered = (questionsAnswered + 1);
         $("#q-answered").html("Questions Answered: " + questionsAnswered);
     }
 })
