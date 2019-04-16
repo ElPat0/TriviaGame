@@ -2,9 +2,6 @@ body {
     font-family: 'Oswald', sans-serif;
     background: url('../images/oriental.png');
   }
-  #instruction{
-    height: 15%;
-  }
 .jumbotron, .card{
     font-family: 'Oswald', sans-serif;
     color: black;
