@@ -52,6 +52,16 @@ var question = [
 var i = 0;
 $("#qboard").html(question[i].text);
 
+function questionchange(){
+    if(userChoice == question[i].value){
+        correctChoice = (correctChoice++);
+        questionsAnswered = (questionsAnswered++);
+    }
+    else{
+        questionsAnswered = (questionsAnswered++)
+    }
+    var i = (i=i++);
+};
 
 $(".userbtn").on("click", function questionchange(){
     if(userChoice == question[i].value){
@@ -63,11 +73,11 @@ $(".userbtn").on("click", function questionchange(){
     }
     var i = (i=i++);
     $("#qboard").html(question[i].text);
-    window.setTimeout(30000, function(){
+    setTimeout(30000, function(){
         alert("Time's Up!");
 //This is supposed to be cycling the question, and begin the 30 second timer
 });
-window.setInterval(questionchange, 5000);
+setInterval(questionchange, 5000);
 // automatically change question every 5 seconds
 });
 
@@ -82,6 +92,7 @@ window.setInterval(questionchange, 5000);
 
 $("#true", "#false").on("click", function(){
   i=(i++);
+  $("#qboard").html(question[i].text);
 }); 
 //This is supposed to be advancing the question with each user selection, and comparing the button value to the array element value to determine correct/incorrect
 

@@ -11,7 +11,7 @@
     </head>
     <body id="bdy">
         <header></header>
-        <div class="jumbotron jumbotron-fluid">
+        <div class="jumbotron jumbotron-fluid" id="intruction">
                 <div class="container">
                   <h1 class="display-4">Trivia Game</h1>
                   <p class="lead">You will have thirty seconds to answer as many questions correctly as you can.</p>
@@ -20,7 +20,7 @@
                   <p class="lead">The game ends after five wrong answers.</p>
                 </div>
               </div>
-        <div class="jumbotron">
+        <div class="jumbotron col-md-9" id="qdisplay">
                 <h1 class="display-4">True or False?</h1>
                 <p class="lead" id="qboard"></p>
                 <hr class="my-4">
@@ -28,7 +28,7 @@
                 <a class="btn btn-primary btn-lg userbtn" role="button" id="true">True</a>
                 <a class="btn btn-danger btn-lg userbtn" role="button" id="false">False</a>
               </div>
-              <div class="card" style="width: 18rem;">
+              <div class="card col-md-3" id="scores" style="width: 18rem;">
                 <div class="card-body">
                   <h5 class="card-title">Scoreboard</h5>
                   <p class="card-text" id="q-answered">Questions Answered:</p>
