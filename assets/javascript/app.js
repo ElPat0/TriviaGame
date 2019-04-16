@@ -48,38 +48,39 @@ var question = [
     {text: "It's ok to offer to pay artists with exposure.",
     value: "False",
 }];
-//$(document).ready(function(){
+$(document).ready(function(){
 var i = 0;
+var shortTimer;
 $("#qboard").html(question[i].text);
+setInterval(questionChange, 5000);
+setTimeout(function(){
+    alert("Time's Up!")
+}, 30000);
 
-function questionchange(){
-    if(userChoice == question[i].value){
-        correctChoice = (correctChoice++);
-        questionsAnswered = (questionsAnswered++);
-    }
-    else{
-        questionsAnswered = (questionsAnswered++)
-    }
-    var i = (i=i++);
-};
-
-$(".userbtn").on("click", function questionchange(){
-    if(userChoice == question[i].value){
-        correctChoice = (correctChoice++);
-        questionsAnswered = (questionsAnswered++);
-    }
-    else{
-        questionsAnswered = (questionsAnswered++)
-    }
-    var i = (i=i++);
+function questionChange(){
+    i = (i + 1);
     $("#qboard").html(question[i].text);
-    setTimeout(30000, function(){
-        alert("Time's Up!");
+    //shortTimer = setInterval(questionChange, 5000);
+    //clearInterval(shortTimer);
+    
+    console.log(question[i]);
+};
+function clickHandler(){
+    clearInterval(shortTimer);
+    questionChange();
+}
+$(".userbtn").on("click", clickHandler);
+//shortTimer = setInterval(questionChange, 5000);
+  
+
+  //  setTimeout(30000, function(){
+  //      alert("Time's Up!");
 //This is supposed to be cycling the question, and begin the 30 second timer
-});
-setInterval(questionchange, 5000);
+//});
+
+//shortTimer = setInterval(questionChange, 5000);
 // automatically change question every 5 seconds
-});
+//});
 
   //  if(i > question.length){
     //    alert("You've answered all the questions!");
@@ -90,9 +91,9 @@ setInterval(questionchange, 5000);
 //} This for loop was just cycling to the last value each time.
 
 
-$("#true", "#false").on("click", function(){
-  i=(i++);
-  $("#qboard").html(question[i].text);
+//$("#true", "#false").on("click", function(questionChange){
+ // i=(i++);
+ // $("#qboard").html(question[i].text);
 }); 
 //This is supposed to be advancing the question with each user selection, and comparing the button value to the array element value to determine correct/incorrect
 
