@@ -1,5 +1,5 @@
 
-var userChoice = 0;
+var userChoice;
 var questionsAnswered = 0;
 var correctChoice = 0;
 var question = [
@@ -50,6 +50,7 @@ var question = [
 }];
 $(document).ready(function(){
 var i = 0;
+
 var shortTimer;
 $("#qboard").html(question[i].text);
 setInterval(questionChange, 5000);
@@ -70,32 +71,24 @@ function clickHandler(){
     questionChange();
 }
 $(".userbtn").on("click", clickHandler);
-//shortTimer = setInterval(questionChange, 5000);
-  
 
-  //  setTimeout(30000, function(){
-  //      alert("Time's Up!");
-//This is supposed to be cycling the question, and begin the 30 second timer
-//});
-
-//shortTimer = setInterval(questionChange, 5000);
-// automatically change question every 5 seconds
-//});
-
-  //  if(i > question.length){
-    //    alert("You've answered all the questions!");
-   // After ansewring all 15 questions, end cycle.
-//})
-//for(let i = 0; i < question.length; i++){;
-//$("#qboard").text(question[i].text);
-//} This for loop was just cycling to the last value each time.
-
-
-//$("#true", "#false").on("click", function(questionChange){
- // i=(i++);
- // $("#qboard").html(question[i].text);
 }); 
-//This is supposed to be advancing the question with each user selection, and comparing the button value to the array element value to determine correct/incorrect
+$("#True").on("click", function(){
+userChoice = $("#True").val().trim();
+if(userChoice == question[i].value){
+    correctChoice = (correctChoice++);
+    questionsAnswered = (questionsAnswered++);
+    $("#q-answered").html("Questions Answered: " + questionsAnswered);
+    $("#q-correct").html("Total Correct: " + correctChoice);
+    }
+})
+$("#False").on("click", function(){
+    userChoice = $("#False").val().trim();
+    if(userChoice == question[i].value){
+        questionsAnswered = (questionsAnswered++);
+        $("#q-answered").html("Questions Answered: " + questionsAnswered);
+    }
+})
 
 console.log(question);
 console.log(question.length)
